@@ -5,6 +5,10 @@
 # Список my_favorite_songs содержит список названий и длительности каждого трека
 # Выведите общее время звучания трех случайных песен в формате
 # Три песни звучат ХХХ минут
+import random
+from datetime import timedelta
+
+duration = timedelta(minutes=0, seconds=0)
 
 my_favorite_songs = [
     ['Waste a Moment', 3.03],
@@ -17,6 +21,14 @@ my_favorite_songs = [
     ['Nowhere to Run', 2.58],
     ['In This World', 4.02],
 ]
+
+for i in range(3):
+    random.shuffle(my_favorite_songs)
+    min_duration = int(my_favorite_songs[0][1])
+    sec_duration = int(100*(my_favorite_songs[0][1] - float(min_duration)))
+    song_duration = timedelta(minutes=min_duration, seconds=sec_duration)    
+    duration += song_duration    
+print(f'Three songs\' duration is {duration.seconds//60}')
 
 # Пункт B. 
 # Есть словарь песен 
@@ -35,6 +47,17 @@ my_favorite_songs_dict = {
     'In This World': 4.02,
 }
 
+duration = timedelta(minutes=0, seconds=0)
+song_dur = []
+for value in my_favorite_songs_dict.values():
+    song_dur.append(value)
+for i in range(3):
+    random.shuffle(song_dur)
+    min_duration = int(song_dur[1])
+    sec_duration = int(100*(song_dur[1] - float(min_duration)))
+    song_duration = timedelta(minutes=min_duration, seconds=sec_duration)    
+    duration += song_duration    
+print(f'Three songs\' duration is {duration.seconds//60}')
 # Дополнительно для пунктов A и B
 # Пункт C.
 # Сгенерируйте случайные песни с помощью модуля random
