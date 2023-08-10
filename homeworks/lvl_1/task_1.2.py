@@ -67,3 +67,20 @@ print(f'Three songs\' duration is {duration.seconds//60}')
 # Пункт D.
 # Переведите минуты и секунды в формат времени. Используйте модуль datetime 
 
+
+#3d edition without datetime
+min_duration = 0
+sec_duration = 0
+min_value = 0
+sec_value = 0
+for cou in range(3):
+    i = random.randint(0, len(song_dur)- 1)
+    min_duration = int(song_dur[i])
+    sec_duration = int(song_dur[i] - float(min_duration))*100
+    min_value += min_duration
+    sec_value += sec_duration
+    if sec_value >= 60:
+        min_value += 1
+        sec_value -= 60
+print(f'Any random three songs duration is {min_value}')
+ 
