@@ -56,7 +56,7 @@ match m_number:
     case _:
         print('Такого месяца нет!')
 
-if 13 > m_number > 1:
+if 13 > m_number > 0:
     print(f"Вы ввели {month}. {days} дней")
 
 
