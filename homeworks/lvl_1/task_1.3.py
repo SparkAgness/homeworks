@@ -21,7 +21,7 @@ match m_number:
     case 1: 
         month = "январь"
         days = 31
-        flag = 1
+        flag = 1 #flag is for день/дней
     case 2:
         month = "февраль"
         days = 28
